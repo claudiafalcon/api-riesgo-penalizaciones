@@ -56,4 +56,4 @@ api-riesgo-penalizaciones/
 
 ## 👩‍💻 Author
 
-This project is part of the professional portfolio of [Your Name], a former BSS Systems Architect transitioning into AI and data-driven risk solutions for financial and retail sectors.
+This project is part of the professional portfolio of Claudia Falcón, a former BSS Systems Architect transitioning into AI and data-driven risk solutions for financial and retail sectors.
