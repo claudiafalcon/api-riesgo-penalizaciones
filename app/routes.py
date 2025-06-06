@@ -4,7 +4,7 @@ main = Blueprint("main", __name__)
 
 @main.route("/")
 def index():
-    return jsonify({"message": "API Penalizaciones Activa"}), 200
+    return jsonify({"message": "API Penalizaciones Activa Prueba 2"}), 200
 
 @main.route("/transacciones")
 def transacciones_dummy():
