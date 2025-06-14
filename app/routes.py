@@ -1,11 +1,8 @@
-from flask import Blueprint, jsonify
+from fastapi import APIRouter, Query
+from app.services.s3 import list_files_by_day
 
-main = Blueprint("main", __name__)
+router = APIRouter()
 
-@main.route("/")
-def index():
-    return jsonify({"message": "API Penalizaciones Activa Prueba Yaa"}), 200
-
-@main.route("/transacciones")
-def transacciones_dummy():
-    return jsonify({"data": "Aquí irán los datos de transacciones"}), 200
+@router.get("/archivos")
+def archivos_disponibles(tipo: str = Query("json")):
+    return list_files_by_day(tipo)
