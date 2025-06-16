@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Query, Depends, HTTPException, Header
-from app.services.s3 import list_files_by_day, generate_presigned_url, list_presigned_urls_for_day
+from app.services.s3 import list_files_by_day, generate_presigned_urls_by_range, list_presigned_urls_for_day
 from app.utils.auth import verify_api_key
 
 router = APIRouter()
@@ -30,8 +30,9 @@ def get_urls_for_day(
 @router.get("/descarga-multiple")
 def descargar_por_rango(
     coleccion: str,
-    tipo: str = Query("parquet"),
+    tipo: str = Query("parquet", regex="^(json|parquet)$"),
     inicio: str = Query(...),  # formato YYYY-MM-DD
-    fin: str = Query(...)
+    fin: str = Query(...),
+    auth: None = Depends(verify_api_key)  # ✅ Autenticación por API key
 ):
     return generate_presigned_urls_by_range(coleccion, tipo, inicio, fin)
