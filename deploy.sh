@@ -26,6 +26,6 @@ pkill -f "uvicorn app.main:app"
 
 # Lanzar FastAPI en segundo plano y guardar log
 echo "🚀 Iniciando FastAPI..."
-nohup python3 -m uvicorn app.main:app --host 0.0.0.0 --port 8000 > fastapi.log 2>&1 &
+nohup python3 -m uvicorn app.main:app --host 0.0.0.0 --port 8493 > fastapi.log 2>&1 &
 
 echo "✅ Despliegue completado y FastAPI reiniciado."
